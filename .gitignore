@@ -12,6 +12,7 @@ gradle-app.setting
 
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
+<<<<<<< HEAD
 
 
 *.iml
@@ -20,3 +21,5 @@ gradle-app.setting
 .idea/
 *.log
 *.log.zip
+=======
+>>>>>>> 7bfa276dbde3861455375c2a7fd1dd201f08f684
