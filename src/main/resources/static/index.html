@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>hello world</title>
+    <title>test file upload</title>
 </head>
 <body>
-<h2>greeting</h2>
+
+<form method="post" action="/file/image/upload" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="file" name="file1">
+    <br/>
+    <input type="text" name="bizType" value="test">
+    <input type="text" name="x" value="100">
+    <input type="text" name="y" value="100">
+    <input type="text" name="width" value="100">
+    <input type="text" name="height" value="100">
+    <button type="submit">submit</button>
+</form>
+
 </body>
 </html>

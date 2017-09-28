@@ -1,5 +1,6 @@
 .gradle
 /build/
+/out/
 
 # Ignore Gradle GUI config
 gradle-app.setting
@@ -20,3 +21,5 @@ gradle-app.setting
 *.log
 *.log.zip
 
+# 当你非常确定要修改这个文件时才将它注释
+application.yml

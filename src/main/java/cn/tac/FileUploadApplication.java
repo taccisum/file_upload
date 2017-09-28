@@ -1,4 +1,4 @@
-package cn.tac.template.fileupload;
+package cn.tac;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
