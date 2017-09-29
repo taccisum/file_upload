@@ -5,4 +5,7 @@ package cn.tac.template.fileupload.exception;
  * @since 28/09/2017
  */
 public class ImageValidatingException extends Exception {
+    public ImageValidatingException(String message) {
+        super(message);
+    }
 }

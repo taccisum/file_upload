@@ -1,5 +1,7 @@
 package cn.tac.template.fileupload.domain.image;
 
+import cn.tac.template.fileupload.domain.image.validator.CommonImageValidator;
+
 import java.util.ArrayList;
 
 /**
@@ -9,6 +11,13 @@ import java.util.ArrayList;
 public class ImageValidatorChain extends ArrayList<ImageValidator> {
 
     public ImageValidatorChain() {
-        //todo:: 添加默认的校验器
+        this(true);
+    }
+
+    public ImageValidatorChain(boolean def) {
+        if(def){
+            //todo:: 添加默认的校验器
+            add(new CommonImageValidator());
+        }
     }
 }

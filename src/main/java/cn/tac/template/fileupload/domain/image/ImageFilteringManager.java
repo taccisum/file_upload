@@ -1,7 +1,7 @@
 package cn.tac.template.fileupload.domain.image;
 
 import cn.tac.template.fileupload.exception.ImageValidatingException;
-import cn.tac.template.fileupload.model.bo.ImageInfo;
+import cn.tac.template.fileupload.model.bo.ImageHandlingResult;
 import cn.tac.template.fileupload.model.bo.ImageUploadArguments;
 
 /**
@@ -18,8 +18,8 @@ public abstract class ImageFilteringManager extends ImageStoringManager implemen
     }
 
     @Override
-    public void interceptAfterHandling(ImageInfo info) throws ImageValidatingException {
-        validator.interceptAfterHandling(info);
+    public void interceptAfterHandling(ImageHandlingResult imageHandlingResult) throws ImageValidatingException {
+        validator.interceptAfterHandling(imageHandlingResult);
     }
 
     @Override

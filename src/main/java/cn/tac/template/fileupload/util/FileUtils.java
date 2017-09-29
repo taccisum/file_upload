@@ -4,8 +4,8 @@ import cn.tac.template.fileupload.domain.image.ImageManager;
 import cn.tac.template.fileupload.exception.EmptyFileException;
 import cn.tac.template.fileupload.exception.NoAnyFileException;
 import cn.tac.template.fileupload.model.bo.ImageUploadContext;
-import cn.tac.template.fileupload.model.bo.ImageUploadResult;
 import cn.tac.template.fileupload.model.dto.ImageUploadDto;
+import cn.tac.template.fileupload.model.dto.ImageUploadResult;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 

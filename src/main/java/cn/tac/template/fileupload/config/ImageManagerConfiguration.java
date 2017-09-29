@@ -17,11 +17,10 @@ public class ImageManagerConfiguration {
     }
 
     @Bean
-    public ImageManager imageManager(ImageValidator filter, ImageStorage storage, ImageRecorder recorder, ImageHandler handler){
+    public ImageManager imageManager(ImageValidator filter, ImageStorage storage, ImageHandler handler){
         DefaultImageManager bean = new DefaultImageManager();
         bean.setImageFilter(filter);
         bean.setImageStorage(storage);
-        bean.setImageRecorder(recorder);
         bean.setImageHandler(handler);
         FileUtils.setImageManager(bean);
         return bean;
@@ -34,8 +33,9 @@ public class ImageManagerConfiguration {
     }
 
     @Bean
-    public ImageStorage imageStorage(){
+    public ImageStorage imageStorage(ImageRecorder recorder){
         ImageStorage bean = new DefaultImageStorage();
+        ((ImageRecorderAware) bean).setImageRecorder(recorder);
         return bean;
     }
 

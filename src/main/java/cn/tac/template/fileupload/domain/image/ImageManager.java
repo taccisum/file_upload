@@ -2,7 +2,7 @@ package cn.tac.template.fileupload.domain.image;
 
 import cn.tac.template.fileupload.domain.FileManager;
 import cn.tac.template.fileupload.model.bo.ImageUploadContext;
-import cn.tac.template.fileupload.model.bo.ImageUploadResult;
+import cn.tac.template.fileupload.model.dto.ImageUploadResult;
 
 /**
  * @author tac

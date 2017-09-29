@@ -1,8 +1,9 @@
 package cn.tac.template.fileupload.domain.image;
 
 import cn.tac.template.fileupload.exception.ImageValidatingException;
-import cn.tac.template.fileupload.model.bo.ImageInfo;
+import cn.tac.template.fileupload.model.bo.ImageHandlingResult;
 import cn.tac.template.fileupload.model.bo.ImageUploadArguments;
+import cn.tac.template.fileupload.model.bo.ImageUploadContext;
 
 /**
  * @author tac
@@ -12,19 +13,15 @@ public class DefaultImageValidator implements ImageValidator {
 
     @Override
     public void interceptBeforeHandling(ImageUploadArguments arguments) throws ImageValidatingException {
-        for (ImageValidator filter : getValidatorChain(arguments.getBizType())) {
+        for (ImageValidator filter : ((ImageUploadContext) arguments).getValidatorChain()) {
             filter.interceptBeforeHandling(arguments);
         }
     }
 
     @Override
-    public void interceptAfterHandling(ImageInfo info) throws ImageValidatingException {
-        for (ImageValidator filter : getValidatorChain(info.getBizType())) {
-            filter.interceptAfterHandling(info);
+    public void interceptAfterHandling(ImageHandlingResult imageHandlingResult) throws ImageValidatingException {
+        for (ImageValidator filter : ((ImageUploadContext) imageHandlingResult).getValidatorChain()) {
+            filter.interceptAfterHandling(imageHandlingResult);
         }
-    }
-
-    private ImageValidatorChain getValidatorChain(String type) {
-        return ImageManagerConfigFactory.get(type).getValidatorChain();
     }
 }

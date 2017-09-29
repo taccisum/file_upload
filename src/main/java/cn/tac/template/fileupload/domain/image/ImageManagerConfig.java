@@ -1,6 +1,7 @@
 package cn.tac.template.fileupload.domain.image;
 
 import cn.tac.template.fileupload.model.bo.ImageStoringSize;
+import cn.tac.template.fileupload.model.bo.Watermark;
 
 import java.util.List;
 
@@ -14,4 +15,8 @@ public interface ImageManagerConfig {
     String getFormat();
 
     List<ImageStoringSize> getImageStoringSize();
+
+    Watermark getWatermark();
+
+    String getLocation();
 }

@@ -1,29 +1,24 @@
 package cn.tac.template.fileupload.domain.image;
 
-import cn.tac.template.fileupload.model.bo.FileStoringInfo;
-
-import java.util.List;
+import cn.tac.template.fileupload.model.bo.ImageStoringInfo;
+import cn.tac.template.fileupload.model.bo.ImageStoringResult;
 
 /**
  * @author tac
  * @since 28/09/2017
  */
-public abstract class ImageStoringManager extends ImageManager implements ImageStorage, ImageStorageAware, ImageRecorder, ImageRecorderAware {
+public abstract class ImageStoringManager extends ImageManager implements ImageStorage, ImageStorageAware {
     private ImageStorage storage;
-    private ImageRecorder recorder;
 
     @Override
-    public int store(List<FileStoringInfo> infos) {
-        return 0;
+    public ImageStoringResult store(ImageStoringInfo info) {
+        return storage.store(info);
     }
+
 
     @Override
     public void setImageStorage(ImageStorage storage) {
         this.storage = storage;
     }
 
-    @Override
-    public void setImageRecorder(ImageRecorder recorder) {
-        this.recorder = recorder;
-    }
 }

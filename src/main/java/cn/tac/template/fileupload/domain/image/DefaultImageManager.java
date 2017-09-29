@@ -2,9 +2,9 @@ package cn.tac.template.fileupload.domain.image;
 
 import cn.tac.template.fileupload.exception.ImageUploadException;
 import cn.tac.template.fileupload.exception.ImageValidatingException;
-import cn.tac.template.fileupload.model.bo.*;
-
-import java.util.List;
+import cn.tac.template.fileupload.model.bo.ImageStoringResult;
+import cn.tac.template.fileupload.model.bo.ImageUploadContext;
+import cn.tac.template.fileupload.model.dto.ImageUploadResult;
 
 /**
  * @author tac
@@ -19,27 +19,26 @@ public class DefaultImageManager extends ImageHandlingManager {
             throw new ImageUploadException(e);
         }
 
-        ImageHandlingResult result = handle(context);
+        context.fillImageHandlingResult(handle(context));
 
         try {
-            interceptAfterHandling(extractInfo(result));
+            interceptAfterHandling(context);
         } catch (ImageValidatingException e) {
             throw new ImageUploadException(e);
         }
 
-        store(buildStoringInfos(result));
+        context.fillImageStoringResult(store(context));
 
-        return null;
+        return buildResult(context);
     }
 
-    private List<FileStoringInfo> buildStoringInfos(ImageHandlingResult result) {
-        //todo::
-        return null;
-    }
+    private ImageUploadResult buildResult(ImageUploadContext context) {
+        ImageStoringResult storingResult = context;
+        ImageUploadResult result = new ImageUploadResult();
 
-    private ImageInfo extractInfo(ImageHandlingResult result) {
-        //todo::
-        return null;
+        result.setId(storingResult.getId());
+        result.setName(storingResult.getStoringName());
+        result.setSizes(storingResult.getSizes());
+        return result;
     }
-
 }
